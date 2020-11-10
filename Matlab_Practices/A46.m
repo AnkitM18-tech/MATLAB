@@ -1,0 +1,22 @@
+clc
+clear
+close all
+q1=2*10^-10;
+q2=3*10^-10;
+e=8.85*10^-12;
+x1=-0.25;
+y1=0;
+z1=0;
+x2=0.25;
+y2=0;
+z2=0;
+x=[-0.2:0.01:0.2];
+y=[-0.2:0.01:0.2];
+[xx,yy]=meshgrid(x,y);
+r1=sqrt((xx-x1).^2+(yy-y1).^2);
+r2=sqrt((xx-x2).^2+(yy-y1).^2);
+V=(1/(4*pi*e)).*((q1./r1)+(q2./r2));
+figure
+surf(xx,yy,V);
+figure
+mesh(xx,yy,V);

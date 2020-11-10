@@ -1,0 +1,37 @@
+clc
+clear
+g=9.8;
+close all;
+prompt1={'enter velocity 1','enter velocity 2','enter velocity 3'};
+ti1='velocity';
+u=inputdlg(prompt1,ti1);
+prompt2={'enter angle 1','enter angle 2','enter angle 3'};
+ti2='angles';
+T=inputdlg(prompt2,ti2);
+u1=str2num(u{1});
+u2=str2num(u{2});
+u3=str2num(u{3});
+theta1=str2num(T{1});
+theta2=str2num(T{2});
+theta3=str2num(T{3});
+T1=2*u1*sin(theta1)/g;
+T2=2*u2*sin(theta2)/g;
+T3=2*u3*sin(theta3)/g;
+t1=linspace(0,T1,10);
+t2=linspace(0,T2,10);
+t3=linspace(0,T3,10);
+x1=u1.*cosd(theta1).*t1;
+x2=u2.*cosd(theta2).*t2;
+x3=u3.*cosd(theta3).*t3;
+y1=(u1.*sind(theta1).*t1/2)-(1/2*g.*(t1/2).^2);
+y2=(u2.*sind(theta2).*t2/2)-(1/2*g.*(t2/2).^2);
+y3=(u3.*sind(theta3).*t3/2)-(1/2*g.*(t3/2).^2);
+xlabel('X distance');
+ylabel('Y distance');
+plot(x1,y1,'-r*');
+hold on;
+plot(x2,y2,'--g');
+hold on;
+plot(x3,y3,':m');
+hold off;
+legend('first projectile','second projectile','third projectile');
