@@ -1,0 +1,25 @@
+clc;
+clear all;
+close all;
+x=input('Enter the sequence : ');
+y=xcorr(x,x);
+figure;
+subplot(3,1,1);
+stem(x);
+xlabel('n->');
+ylabel('Amplitude->');
+title('Input sequence');
+grid on;
+subplot(3,1,2);
+stem(fliplr(y));   
+xlabel('n->');
+ylabel('Amplitude->');
+title('Output sequence---discrete');
+grid on;
+subplot(3,1,3);
+plot(fliplr(y));   
+xlabel('time->');
+ylabel('Amplitude->');
+title('Output sequence----continuous');
+grid on;
+disp(fliplr(y))

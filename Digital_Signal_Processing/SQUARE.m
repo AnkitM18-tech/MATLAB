@@ -1,0 +1,18 @@
+clear all;
+close all;
+clc;
+fs=input('Enter the Frequeny:');
+t=0:1/fs:20;
+sq= square(2*pi*50*t);
+subplot(2,1,1);
+plot(t,sq);
+axis([0 0.2 -1.2 1.2]);
+ylabel('amplitude');
+xlabel('time (Abhishek,1702070005)');
+title('continuous square wave');
+subplot(2,1,2);
+stem(t,sq);
+axis([0 0.2 -1.2 1.2]);
+ylabel('amplitude');
+xlabel('time (Abhishek,1702070005)');
+title('discrete square wave');
